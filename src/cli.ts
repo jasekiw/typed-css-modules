@@ -37,6 +37,9 @@ const yarg = yargs
   .alias('s', 'silent')
   .describe('s', 'Silent output. Do not show "files written" messages')
   .boolean('s')
+  .alias('f', 'followSymlinks')
+  .describe('f', 'Follow symlinks')
+  .boolean('f')
   .alias('h', 'help')
   .help('h')
   .version(require('../package.json').version);
@@ -70,5 +73,6 @@ async function main(): Promise<void> {
     dropExtension: argv.d,
     silent: argv.s,
     listDifferent: argv.l,
+    followSymlinks: argv.f,
   });
 }
